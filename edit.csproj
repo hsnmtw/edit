@@ -1,4 +1,5 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
     <AssemblyName>ui</AssemblyName>  
@@ -8,6 +9,7 @@
     <Runtime>x64</Runtime>    
     <LangVersion>5</LangVersion>
     <Nullable>enable</Nullable>
+    <!-- <PreferredUILang>en-US</PreferredUILang> -->
   </PropertyGroup>
 
   <ItemGroup>  
@@ -17,22 +19,23 @@
   <Target Name="Build">
     <MakeDir Directories="$(OutputPath)"      Condition="!Exists('$(OutputPath)')" />
     <Csc 
-      AllowUnsafeBlocks="false"
-      DebugType="none"
-      EmitDebugInformation="false"
-      LangVersion="5"
-      MainEntryPoint="Edit.Program"
-      NoLogo="true"
-      NoWin32Manifest="true"
-      Optimize="true"
-      Platform="x64"
-      PreferredUILang="en-US"
-      TargetType="exe"
-      TreatWarningsAsErrors="true"
-      Utf8Output="true"
-      WarningLevel="4"
-      Sources="@(Compile)" 
-      OutputAssembly="$(OutputPath)$(AssemblyName).exe" />  
+      AllowUnsafeBlocks     = "false"
+      DebugType             = "none"
+      EmitDebugInformation  = "false"
+      LangVersion           = "5"
+      MainEntryPoint        = "_Main"
+      NoLogo                = "true"
+      NoWin32Manifest       = "true"
+      Optimize              = "true"
+      PreferredUILang       = "en-US"
+      Platform              = "x64"
+      TargetType            = "exe"
+      TreatWarningsAsErrors = "true"
+      Utf8Output            = "true"
+      WarningLevel          = "4"
+      Sources               = "@(Compile)" 
+      OutputAssembly        = "$(OutputPath)$(AssemblyName).exe" 
+    />  
   </Target>
 
 </Project>
